@@ -18,16 +18,22 @@ public class UniqueNumbers {
         }
 
         int[] uniqueNumbers = new int[numbers.length];
-        // Find unique numbers 
-        for (int i= 1; i< numberCount; i++){
-          for (int j = 0; j < numberCount; j++){
-            
+        int nextUniqueIndex = 0;
+        for (int index = 0; index < numbers.length; index++) {
+          boolean f = false;
+          for (int i = 0; i < uniqueNumbers.length; i++) {
+             if (numbers[index] == uniqueNumbers[i]) {
+              f = true;
+              break;
+            }
           }
-
-        if (uniqueNumbers)
+          if (!f) {
+            uniqueNumbers[nextUniqueIndex] = numbers[index];
+            nextUniqueIndex++;
+          }
         }
 
-        String uniqueNumbersAsString = Arrays.toString(uniqueNumbers);
-        System.out.println("Unique numbers: " + uniqueNumbersAsString);
+     String uniqueNumbersAsString = Arrays.toString(uniqueNumbers);
+    System.out.println("Unique numbers: " + uniqueNumbersAsString);
     }
 }
